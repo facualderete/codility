@@ -6,7 +6,7 @@ import org.junit.Test;
 public class CyclicRotationTest {
 
     @Test
-    public void test() {
+    public void basicTest() {
         int[] A = {3, 8, 9, 7, 6};
         int[] B = {1, 2, 3, 4};
         int[] expectedResultA = {9, 7, 6, 3, 8};

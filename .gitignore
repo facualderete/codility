@@ -5,3 +5,10 @@
 
 # Compiled class file
 *.class
+
+# Maven #
+target/
+/.mvn
+/.maven
+/.repository
+.flattened-pom.xml
