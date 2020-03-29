@@ -1,7 +1,8 @@
 package arrays;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static utils.ArrayComparator.assertArrayValues;
 
 public class CyclicRotationTest {
 
@@ -17,14 +18,5 @@ public class CyclicRotationTest {
 
         assertArrayValues(resultA, expectedResultA);
         assertArrayValues(resultB, expectedResultB);
-    }
-
-    private void assertArrayValues(int[] values, int[] expectedValues) {
-        Assert.assertEquals("Asserting array and expected array should have the same length",
-                values.length, expectedValues.length);
-        for (int i = 0 ; i < values.length ; i++) {
-            Assert.assertEquals(String.format("Value is different than expected on index %d", i),
-                    values[i], expectedValues[i]);
-        }
     }
 }
