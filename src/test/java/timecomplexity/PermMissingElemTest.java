@@ -1,22 +1,26 @@
 package timecomplexity;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class PermMissingElemTest {
 
-    @Test
-    public void basicTest() {
-        int[] A = {2, 3, 1, 5};
-        int[] B = {2, 3, 4, 5};
-        int[] C = {2, 3, 4, 1};
-        int[] D = {2, 1, 4, 5};
-        int[] E = {3, 1, 4, 5};
+    @Test(dataProvider = "dataProvider")
+    public void basicTest(int[] A, int expectedResult) {
+        assertThat(PermMissingElem.solution(A), is(expectedResult));
+    }
 
-        Assert.assertEquals(4, PermMissingElem.solution(A));
-        Assert.assertEquals(1, PermMissingElem.solution(B));
-        Assert.assertEquals(5, PermMissingElem.solution(C));
-        Assert.assertEquals(3, PermMissingElem.solution(D));
-        Assert.assertEquals(2, PermMissingElem.solution(E));
+    @DataProvider(name = "dataProvider")
+    public Object[][] basicTestDataProvider() {
+        return new Object[][] {
+            {new int[]{2, 3, 1, 5}, 4},
+            {new int[]{2, 3, 4, 5}, 1},
+            {new int[]{2, 3, 4, 1}, 5},
+            {new int[]{2, 1, 4, 5}, 3},
+            {new int[]{3, 1, 4, 5}, 2}
+        };
     }
 }
